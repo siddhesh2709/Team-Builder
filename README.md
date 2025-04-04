@@ -39,7 +39,7 @@ To run this project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/team-builder.git
+git clone https://github.com/sidhesh@2709/team-builder.git
 
 # Navigate into the project directory
 cd team-builder
