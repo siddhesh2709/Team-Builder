@@ -8,6 +8,9 @@ A sleek and intuitive web application that allows users to create and manage tea
 
 🔗 **Live Demo:** [team-builder-theta.vercel.app](https://team-builder-theta.vercel.app/)
 
+About Team-Builder:-
+![Screenshot 2025-04-04 223257](https://github.com/user-attachments/assets/e46d1624-8a88-4898-b9b7-a32232bba9a3)
+
 ---
 
 ## 🚀 Features
