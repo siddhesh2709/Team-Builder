@@ -1,53 +1,50 @@
-# Team-Builder
-A modern web app for building and managing custom teams with ease. Create, customize, and organize team members in a sleek, responsive interface.
+# React + TypeScript + Vite
 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-# 🧑‍🤝‍🧑 Team Builder
+Currently, two official plugins are available:
 
-A sleek and intuitive web application that allows users to create and manage teams effortlessly. Whether you're building a project group, a fantasy sports team, or organizing a class project, Team Builder makes the process simple and efficient.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-🔗 **Live Demo:** [team-builder-theta.vercel.app](https://team-builder-theta.vercel.app/)
+## Expanding the ESLint configuration
 
-About Team-Builder:-
-![Screenshot 2025-04-04 223257](https://github.com/user-attachments/assets/e46d1624-8a88-4898-b9b7-a32232bba9a3)
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
----
+- Configure the top-level `parserOptions` property like this:
 
-## 🚀 Features
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-- 👥 Create and manage teams dynamically
-- ✍️ Add, remove, and edit team members
-- 🧠 Smart layout for clear visibility of team composition
-- ⚡ Fast and responsive UI with modern design
-- 🌐 Hosted on Vercel for optimal performance
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
----
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-## 🛠️ Tech Stack
-
-- **Frontend:** React, Tailwind CSS
-- **Hosting:** Vercel
-
----
-
-## 📸 Screenshots
-![Screenshot 2025-04-04 223236](https://github.com/user-attachments/assets/10a2b9a9-fd90-4c61-8040-3135c859a8f3)
-
----
-
-## 🧑‍💻 Getting Started
-
-To run this project locally:
-
-```bash
-# Clone the repository
-git clone https://github.com/siddhesh2709/team-builder.git
-
-# Navigate into the project directory
-cd team-builder
-
-# Install dependencies
-npm install
-
-# Run the app
-npm start
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
+```
